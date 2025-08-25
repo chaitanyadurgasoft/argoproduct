@@ -1,0 +1,22 @@
+{{- range .Values.microservices }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .name }}
+  labels:
+    app: {{ .labels.app }}
+spec:
+  replicas: {{ .replicas | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .labels.app }}
+    spec:
+      containers:
+      - name: {{ .name }}
+        image: {{ .image.repository }}:{{ .image.tag }}
+{{- end }}

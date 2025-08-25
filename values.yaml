@@ -1,0 +1,55 @@
+microservices:
+- replicas: 1
+  labels: 
+    app: frontend
+  name: frontend
+  image: 
+    repository: chaitanyamanikumar/microservicefrontend
+    tag: v1
+- replicas: 1
+  labels: 
+    app: user
+  name: user-service
+  image: 
+    repository: chaitanyamanikumar/microserviceuser
+    tag: v1
+- replicas: 1
+  labels: 
+    app: product
+  name: product-service
+  image: 
+    repository: chaitanyamanikumar/microserviceproduct
+    tag: v1
+- replicas: 1
+  labels: 
+    app: order
+  name: order-service
+  image: 
+    repository: chaitanyamanikumar/microserviceorder
+    tag: v1
+
+service:
+- labels:
+    app: frontend
+  name: frontend
+  port: 80
+  targetPort: 80
+  protocol: TCP
+- labels:
+    app: user
+  name: user-service
+  port: 80
+  targetPort: 5000
+  protocol: TCP
+- labels:
+    app: product
+  name: product-service
+  port: 80
+  targetPort: 5000
+  protocol: TCP
+- labels:
+    app: order
+  name: order-service
+  port: 80
+  targetPort: 5000
+  protocol: TCP
