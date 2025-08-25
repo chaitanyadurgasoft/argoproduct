@@ -6,6 +6,7 @@ metadata:
   labels:
     app: {{ .labels.app }}
   name: {{ .name }}
+  namespace: default
 spec:
   ports:
   - port: {{ .port }}

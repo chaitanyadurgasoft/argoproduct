@@ -6,6 +6,7 @@ metadata:
   name: {{ .name }}
   labels:
     app: {{ .labels.app }}
+  namespace: default
 spec:
   replicas: {{ .replicas | default 1 }}
   selector:
