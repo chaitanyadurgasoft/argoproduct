@@ -5,7 +5,7 @@ microservices:
   name: frontend
   image: 
     repository: chaitanyamanikumar/microservicefrontend
-    tag: v1
+    tag: v2
 - replicas: 1
   labels: 
     app: user
